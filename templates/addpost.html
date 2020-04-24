@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+ 
+ <div class="content mt-5">
+        <div class="container-fluid">
+          <div class="row">
+          <div class="col-3"> </div>
+            <div class="col-md-6">
+              <div class="card">
+                <div class="card-header card-header-primary">
+                  <h4 class="card-title">Add a BLog Post</h4>
+                  
+                </div>
+
+                <div class="card-body">
+  <form method="POST" class="form"> {% csrf_token %}
+    <div class=form-group>
+    <label>Title : <label><br>
+    <input type="text" name="title" class="form-control">  
+    </div>
+    <div class="form-group">
+    <label>description : <label><br>
+    <textarea type="text" name="description" class="form-control"></textarea>  
+    </div>
+    <div class="form-group"><br>
+    <label>Image : <label>
+    <input type="file" name="image" class="form-control">  
+    </div>               
+<input type="submit" name="" value="Register" class=" btn btn-primary pull-right m-3">
+  </form>                
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3">
+              </div>
+      
+
+{% endblock  %}}

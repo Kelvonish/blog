@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container-fluid">
+<div class="row">
+<div class="col-8">
+<div class="card ">
+<div class="card-header card-header-primary"> 
+<div class="card-title">{{data.title}}</div>
+</div>
+<div class="card-body">
+<div class=""> <img src="{{data.image.url}}" class="img-responsive img-fluid"></div>
+<div class="">{{data.description}}</div>
+</div>
+<div class="card-footer">
+<strong> Author:{{data.author}}</strong>
+<small> Created at: {{data.created}}</small>
+
+</div>
+</div>
+</div>
+</div>
+<div>
+<h4>Comments</h4>
+{% if  comment%}
+{% for b in comment %}
+<h6>By: {{b.user}}</h6>
+<p>{{b.comment}}</p>
+{{b.created}}
+<small></small>
+{% endfor %}
+{% endif %}
+</div>
+
+</div>
+
+{% endblock %}

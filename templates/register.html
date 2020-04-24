@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block content %}
+ 
+ <div class="content mt-5">
+        <div class="container-fluid">
+          <div class="row">
+          <div class="col-3"> </div>
+            <div class="col-md-6">
+              <div class="card">
+                <div class="card-header card-header-primary">
+                  <h4 class="card-title">New Member Register</h4>
+                  
+                </div>
+
+                <div class="card-body">
+                {% if form.errors %}
+  <div class="alert alert-warning alert-dismissable" role="alert">
+    <button class="close" data-dismiss="alert">
+      <small><sup>x</sup></small>
+    </button>
+    <p>Your form has errors...</p>
+    {% for field in form %}
+        {% if field.errors %}
+        {{ field.errors }}
+        {% endif %}
+    {% endfor %}
+
+  </div>
+
+  {% endif %}
+  
+  
+  <form method="POST" class="form-group"> {% csrf_token %}
+        {{ form.as_p }}           
+<input type="submit" name="" value="Register" class=" btn btn-primary pull-right m-3">
+  </form>                <div class="card-footer">
+                    <h4>Already a Member? <a href="{% url 'login' %}">Login</a> </h4>
+                    </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3">
+              </div>
+      
+
+{% endblock  %}}

@@ -1,0 +1,53 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container-fluid">
+<div class="row">
+
+{% if search %}
+{% for post in search %}
+<div class="col-4">
+<div class="card">
+<div class="card-header card-header-primary">
+<h4 class="card-title">{{post.title}}</h4>
+</div>
+<div class ="card-body w-100"> {{ post.image }}</div>
+<div class ="card-footer">Author: {{post.author}} 
+<div class=""> <a href="/details/{{post.id}}" class="btn btn-outline-primary"> Read More </a></div>
+</div>
+</div>
+</div>
+{% endfor %}
+{% endif %}
+
+
+
+</div>
+</div>
+
+<div class="container-fluid">
+<div class="row">
+
+{% if data %}
+{% for post in data %}
+<div class="col-4">
+<div class="card">
+<div class="card-header card-header-primary">
+<h4 class="card-title">{{post.title}}</h4>
+</div>
+<div class ="card-body w-100"> <img src="{{ post.image.url }}" class="w-100"></div>
+<div class ="card-footer">Author: {{post.author}} 
+<div class=""> <a href="/details/{{post.id}}" class="btn btn-outline-primary"> Read More </a></div>
+</div>
+</div>
+</div>
+{% endfor %}
+{% endif %}
+
+
+
+</div>
+</div>
+
+{% endblock %}

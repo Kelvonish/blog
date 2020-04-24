@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block content %}
+ 
+ <div class="content mt-5">
+        <div class="container-fluid">
+          <div class="row">
+          <div class="col-3"> </div>
+            <div class="col-md-6">
+              <div class="card">
+                <div class="card-header card-header-primary">
+                  <h4 class="card-title">New Member Register</h4>
+                  
+                </div>
+
+                <div class="card-body">
+  
+  
+  <form method="POST" class="form-group"> {% csrf_token %}
+        <div class="form-group">
+    {% if messages %}
+<div class="span12">
+{% for message in messages %}
+    <div class="alert alert-{{ message.tags }}">
+        {{ message|safe }}
+    </div>
+{% endfor %}
+</div>
+{% endif %}
+    <p><label>Username:</label></p>
+    <input type="text" class="form-control"  name="username">
+  </div>
+  <div class="form-group">
+    <P> <label>Password: </label> </P>
+    <input type="password" class="form-control"  name="password">
+  </div>        
+<input type="submit" name="" value="Login" class=" btn btn-primary pull-right m-3">
+  </form>                <div class="card-footer">
+                    <h4>Not a Member? <a href="{% url 'register' %">Register</a> </h4>
+                    </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3">
+              </div>
+      
+
+{% endblock  %}}
